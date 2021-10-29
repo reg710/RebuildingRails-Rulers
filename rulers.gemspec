@@ -35,10 +35,11 @@ Gem::Specification.new do |spec|
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
 
+  
+  # Book says to use gem.add.... but other bookclub member code uses spec so I'm trying that to see if it will run
   spec.add_runtime_dependency "rack"
+  spec.add_development_dependency "rack-test"
+  spec.add_development_dependency "minitest"
 
-  gem.add_runtime_dependency "rack"
-  gem.add_development_dependency "rack-test"
-  gem.add_development_dependency "minitest"
   
 end
