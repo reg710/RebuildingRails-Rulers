@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "rulers/version"
+require "rulers/version"
+# This will include the array file/methods in all Rulers apps
+require "rulers/array"
 
 module Rulers
   # class Error < StandardError; end
