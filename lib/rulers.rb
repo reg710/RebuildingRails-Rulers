@@ -7,16 +7,36 @@ require "rulers/array"
 require "rulers/routing"
 
 module Rulers
-  # class Error < StandardError; end
+  class Error < StandardError; end
+
   class Application
     def call(env)
       if env['PATH_INFO'] == '/favicon.ico'
         return [404, {'Content-Type' => 'text/html'}, []]
       end
 
+      # This is routing the localhost to the quotes controller/a_quote action
+      if env['PATH_INFO'] == '/'
+        return '/quotes/a_quote'
+        # return [301,
+        #   {'Location' => '/quotes/a_quote'}, []]
+      end
+
       klass, act = get_controller_and_action(env)
       controller = klass.new(env)
-      text = controller.send(act)
+
+      #the begin/rescue is a way to handle expected error
+      begin
+        text = controller.send(act)
+      rescue StandardError => e
+        return [
+          500,
+          {'Content-Type' => 'text/html'},
+          [e.message]
+        ]
+      end
+
+
       [200, {'Content-Type' => 'text/html'}, [text]]
     end
   end
