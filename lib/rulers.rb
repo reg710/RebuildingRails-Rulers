@@ -5,6 +5,8 @@ require "rulers/version"
 require "rulers/array"
 # building first route
 require "rulers/routing"
+require "rulers/util"
+require "rulers/dependencies"
 
 module Rulers
   class Error < StandardError; end
