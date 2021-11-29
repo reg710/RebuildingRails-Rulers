@@ -38,6 +38,7 @@ Gem::Specification.new do |spec|
   
   # Book says to use gem.add.... but other bookclub member code uses spec so I'm trying that to see if it will run
   spec.add_runtime_dependency "rack"
+  spec.add_runtime_dependency "erubis"
   spec.add_development_dependency "rack-test"
   spec.add_development_dependency "minitest"
 
