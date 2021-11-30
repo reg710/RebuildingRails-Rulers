@@ -11,7 +11,7 @@ module Rulers
                 @id = File.basename(basename, ".json").to_i
 
                 obj = File.read(filename)
-                @hash = MutliJson.load(obj)
+                @hash = MultiJson.load(obj)
             end
 
             def [](name)
@@ -29,7 +29,7 @@ module Rulers
                     return nil
                 end
             end
-            
+
         end
     end
 end
